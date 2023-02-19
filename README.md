@@ -1,0 +1,2 @@
+# revanced
+FUCK GOOGLE
