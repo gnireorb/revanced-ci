@@ -1,4 +1,4 @@
-FUCK GOOGLE
+FUCK GOOGLE AND BIG TECHS
 
 ## patch args
 
@@ -9,4 +9,6 @@ sh -c "$(curl https://raw.githubusercontent.com/XDream8/revanced-creator/main/pa
 
 ## download
 
-[v18.03.36](https://github.com/gnireorb/fuck-youtube/releases/tag/v18.03.36)
+[v18.23.35](https://github.com/gnireorb/revanced-ci/releases/tag/v18.23.35)
+
+[v18.03.36](https://github.com/gnireorb/revanced-ci/releases/tag/v18.03.36)
