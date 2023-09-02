@@ -39,3 +39,41 @@ jobs:
           path: |
             revanced-youtube-*-non-root.apk
             vanced-microg.apk
+
+      - name: Build reddit
+        run: |
+          export what_to_patch="reddit"
+          sh -c "$(curl https://raw.githubusercontent.com/XDream8/revanced-creator/main/patch.sh)"
+          
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "revanced-reddit-*-non-root.apk"
+          fail: true
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: revanced-reddit
+          path: |
+            revanced-reddit-*-non-root.apk
+
+      - name: Build twitter
+        run: |
+          export what_to_patch="twitter"
+          sh -c "$(curl https://raw.githubusercontent.com/XDream8/revanced-creator/main/patch.sh)"
+          
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "revanced-twitter-*-non-root.apk"
+          fail: true
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: revanced-twitter
+          path: |
+            revanced-twitter-*-non-root.apk
