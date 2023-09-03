@@ -43,7 +43,7 @@ jobs:
       - name: Build reddit
         run: |
           export what_to_patch="reddit"
-          sh -c "$(curl https://raw.githubusercontent.com/XDream8/revanced-creator/main/patch.sh)"
+          sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-creator/main/patch.sh)"
           
       - name: Check if revanced-reddit apk is created
         id: check_files_
@@ -62,7 +62,7 @@ jobs:
       - name: Build twitter
         run: |
           export what_to_patch="twitter"
-          sh -c "$(curl https://raw.githubusercontent.com/XDream8/revanced-creator/main/patch.sh)"
+          sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-creator/main/patch.sh)"
           
       - name: Check if revanced-twitter apk is created
         id: check_files__
