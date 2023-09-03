@@ -4,21 +4,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  update-system:
     runs-on: ubuntu-latest
-
+    steps:
+      - name: Update the system
+        run: sudo apt install aria2 curl ripgrep
+  build-youtube:
+    needs: update-system
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup java
+      - name: Install Java
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
-          java-version: '19'
-          
-      - name: Update the system
-        run: sudo apt install aria2 curl ripgrep
-
+          java-version: '17'
       - name: Build youtube
         run: |
           export additional_args="-e always-autorepeat -e hide-shorts-button -e custom-branding -i enable-wide-searchbar"
@@ -39,17 +39,26 @@ jobs:
           path: |
             revanced-youtube-*-non-root.apk
             vanced-microg.apk
-
+  build-reddit:
+    needs: update-system
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
       - name: Build reddit
         run: |
           export what_to_patch="reddit"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-creator/main/patch.sh)"
           
       - name: Check if revanced-reddit apk is created
-        id: check_files_
+        id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-youtube-*-non-root.apk"
+          files: "revanced-reddit-*-non-root.apk"
           fail: true
 
       - name: Upload build artifact
@@ -57,18 +66,27 @@ jobs:
         with:
           name: revanced-reddit
           path: |
-            revanced-reddit-*-non-root.apk
-
+            revanced-reddit-*-non-root.apk     
+  build-twitter:
+    needs: update-system
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
       - name: Build twitter
         run: |
           export what_to_patch="twitter"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-creator/main/patch.sh)"
           
       - name: Check if revanced-twitter apk is created
-        id: check_files__
+        id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-youtube-*-non-root.apk"
+          files: "revanced-twitter-*-non-root.apk"
           fail: true
 
       - name: Upload build artifact
@@ -76,4 +94,4 @@ jobs:
         with:
           name: revanced-twitter
           path: |
-            revanced-twitter-*-non-root.apk
+            revanced-twitter-*-non-root.apk   
