@@ -258,8 +258,8 @@ main() {
 	    integrations="enabled"
 	    addarg "-e debug-mode"
 	    ;;
-	twitter)
-	    apk_filename=Twitter-$apk_version.apk
+	x)
+	    apk_filename=X-$apk_version.apk
 	    integrations="enabled"
 	    ;;
 	reddit)
