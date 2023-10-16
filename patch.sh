@@ -162,7 +162,7 @@ addarg() {
 main() {
 
     ## defaults
-    : "${what_to_patch=youtube}"
+    : "${what_to_patch=YouTube}"
     : "${root=0}"
     : "${additional_args=}"
 
