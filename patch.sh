@@ -310,11 +310,6 @@ main() {
 	addarg "-m $integrations_filename"
     fi
 
-    ## set output apk name
-    notset "$output_apk" && {
-	output_apk=revanced-${what_to_patch#*-}.apk
-    }
-
     ## link to download $what_to_patch
     [ ! -f "$apk_filename" ] && apk_link=https://github.com/gnireorb/revanced-ci/releases/download/$what_to_patch/$apk_filename
 
