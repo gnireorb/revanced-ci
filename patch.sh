@@ -245,34 +245,34 @@ main() {
 
     ## what should we patch
     case "$what_to_patch" in
-	youtube)
+	Youtube)
 	    apk_filename=YouTube-$apk_version.apk
 	    integrations="enabled"
 	    addarg "-e enable-debugging"
 	    ;;
-	youtube-music)
+	YouTube-Music)
 	    apk_filename=YouTube-Music-$apk_version.apk
 	    ;;
-	twitch)
+	Twitch)
 	    apk_filename=Twitch-$apk_version.apk
 	    integrations="enabled"
 	    addarg "-e debug-mode"
 	    ;;
-	x)
+	X)
 	    apk_filename=X-$apk_version.apk
 	    integrations="enabled"
 	    ;;
-	reddit)
+	Reddit)
 	    apk_filename=Reddit-$apk_version.apk
 	    ;;
-	tiktok)
+	Tiktok)
 	    apk_filename=TikTok-$apk_version.apk
 	    integrations="enabled"
 	    ;;
-	spotify)
+	Spotify)
 	    apk_filename=Spotify-$apk_version.apk
 	    ;;
-	custom)
+	Custom)
 	    if notset "$apk_filename" && check_dep "find"; then
 		apk_filename=$(find . -maxdepth 1 -type f -iname "*.apk" -not -iname "app-release-unsigned.apk" -or -not -iname "revanced-*.apk" -or -not -iname "*.keystore" | sort -r | awk -F'/' 'NR==1 {print $2}')
 	    elif [ -z "$apk_filename" ] && ! check_dep "find"; then
