@@ -265,7 +265,7 @@ main() {
 	Reddit)
 	    apk_filename=Reddit-$apk_version.apk
 	    ;;
-	Tiktok)
+	TikTok)
 	    apk_filename=TikTok-$apk_version.apk
 	    integrations="enabled"
 	    ;;
@@ -312,7 +312,7 @@ main() {
 
     ## set output apk name
     notset "$output_apk" && {
-	output_apk=revanced-${what_to_patch#*-}-$apk_version-$root_text.apk
+	output_apk=revanced-${what_to_patch#*-}.apk
     }
 
     ## link to download $what_to_patch
