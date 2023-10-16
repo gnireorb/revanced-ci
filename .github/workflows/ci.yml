@@ -19,12 +19,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Build youtube
+      - name: Build YouTube
         run: |
           export additional_args="-e always-autorepeat -e custom-branding -i enable-wide-searchbar"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
-      - name: Check if revanced-youtube apk is created
+      - name: Check if YouTube apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
@@ -34,7 +34,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Youtube
+          name: YouTube
           path: |
             YouTube-*.apk
   build-reddit:
@@ -47,12 +47,12 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Build reddit
+      - name: Build Reddit
         run: |
           export what_to_patch="Reddit"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
-      - name: Check if revanced-reddit apk is created
+      - name: Check if Reddit apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
@@ -80,7 +80,7 @@ jobs:
           export what_to_patch="X"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
-      - name: Check if revanced-x apk is created
+      - name: Check if X apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
@@ -92,4 +92,33 @@ jobs:
         with:
           name: X
           path: |
-            X-*.apk   
+            X-*.apk
+            
+  build-infinity:
+    needs: update-system
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Build Infinity
+        run: |
+          export what_to_patch="Infinity"
+          sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
+          
+      - name: Check if Infinity apk is created
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "Infinity-*.apk"
+          fail: true
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Infinity
+          path: |
+            Infinity-*.apk   
