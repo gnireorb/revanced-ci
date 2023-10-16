@@ -29,7 +29,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-youtube-*-non-root.apk"
+          files: "YouTube-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -37,8 +37,7 @@ jobs:
         with:
           name: revanced-youtube
           path: |
-            revanced-youtube-*-non-root.apk
-            vanced-microg.apk
+            YouTube-*.apk
   build-reddit:
     needs: update-system
     runs-on: ubuntu-latest
@@ -58,7 +57,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-reddit-*-non-root.apk"
+          files: "Reddit-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -66,7 +65,7 @@ jobs:
         with:
           name: revanced-reddit
           path: |
-            revanced-reddit-*-non-root.apk     
+            Reddit-*.apk     
   build-x:
     needs: update-system
     runs-on: ubuntu-latest
@@ -86,7 +85,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-x-*-non-root.apk"
+          files: "X-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -94,4 +93,4 @@ jobs:
         with:
           name: revanced-x
           path: |
-            revanced-x-*-non-root.apk   
+            X-*.apk   
