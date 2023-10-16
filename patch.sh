@@ -245,7 +245,7 @@ main() {
 
     ## what should we patch
     case "$what_to_patch" in
-	Youtube)
+	YouTube)
 	    apk_filename=YouTube-$apk_version.apk
 	    integrations="enabled"
 	    addarg "-e enable-debugging"
