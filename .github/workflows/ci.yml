@@ -51,7 +51,7 @@ jobs:
           java-version: '17'
       - name: Build reddit
         run: |
-          export what_to_patch="reddit"
+          export what_to_patch="Reddit"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
       - name: Check if revanced-reddit apk is created
@@ -67,7 +67,7 @@ jobs:
           name: revanced-reddit
           path: |
             revanced-reddit-*-non-root.apk     
-  build-twitter:
+  build-x:
     needs: update-system
     runs-on: ubuntu-latest
     steps:
@@ -77,21 +77,21 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Build twitter
+      - name: Build X
         run: |
-          export what_to_patch="twitter"
+          export what_to_patch="X"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
-      - name: Check if revanced-twitter apk is created
+      - name: Check if revanced-x apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-twitter-*-non-root.apk"
+          files: "revanced-x-*-non-root.apk"
           fail: true
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: revanced-twitter
+          name: revanced-x
           path: |
-            revanced-twitter-*-non-root.apk   
+            revanced-x-*-non-root.apk   
