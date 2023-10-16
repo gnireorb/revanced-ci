@@ -21,9 +21,8 @@ jobs:
           java-version: '17'
       - name: Build youtube
         run: |
-          export additional_args="-e always-autorepeat -e hide-shorts-button -e custom-branding -i enable-wide-searchbar"
+          export additional_args="-e always-autorepeat -e custom-branding -i enable-wide-searchbar"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
-          curl -OL https://github.com/gnireorb/revanced-ci/releases/download/youtube/vanced-microg.apk
           
       - name: Check if revanced-youtube apk is created
         id: check_files
@@ -35,7 +34,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: revanced-youtube
+          name: Youtube
           path: |
             YouTube-*.apk
   build-reddit:
@@ -63,7 +62,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: revanced-reddit
+          name: Reddit
           path: |
             Reddit-*.apk     
   build-x:
@@ -91,6 +90,6 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: revanced-x
+          name: X
           path: |
             X-*.apk   
