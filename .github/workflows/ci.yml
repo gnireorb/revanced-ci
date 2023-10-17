@@ -21,6 +21,7 @@ jobs:
           java-version: '17'
       - name: Build YouTube
         run: |
+          export what_to_patch="YouTube"
           export additional_args="-e always-autorepeat -e custom-branding -i enable-wide-searchbar"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
