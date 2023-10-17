@@ -49,14 +49,14 @@ jobs:
           java-version: '17'
       - name: Build Reddit
         run: |
-          export what_to_patch="reddit"
+          export what_to_patch="Reddit"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
       - name: Check if Reddit apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-reddit-*.apk"
+          files: "Reddit-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -64,7 +64,7 @@ jobs:
         with:
           name: Reddit
           path: |
-            revanced-reddit-*.apk     
+            Reddit-*.apk     
   build-x:
     needs: update-system
     runs-on: ubuntu-latest
@@ -77,14 +77,14 @@ jobs:
           java-version: '17'
       - name: Build X
         run: |
-          export what_to_patch="x"
+          export what_to_patch="X"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
       - name: Check if X apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-x-*.apk"
+          files: "X-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -92,7 +92,7 @@ jobs:
         with:
           name: X
           path: |
-            revanced-x-*.apk
+            X-*.apk
             
   build-infinity:
     needs: update-system
@@ -106,14 +106,14 @@ jobs:
           java-version: '17'
       - name: Build Infinity
         run: |
-          export what_to_patch="infinity"
+          export what_to_patch="Infinity"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
       - name: Check if Infinity apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-infinity-*.apk"
+          files: "Infinity-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -121,4 +121,4 @@ jobs:
         with:
           name: Infinity
           path: |
-            revanced-infinity-*.apk
+            Infinity-*.apk
