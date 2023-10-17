@@ -30,7 +30,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "Youtube-*.apk"
+          files: "YouTube-*.apk"
           fail: true
 
       - name: Upload build artifact
@@ -38,7 +38,7 @@ jobs:
         with:
           name: YouTube
           path: |
-            revanced-youtube-*.apk
+            YouTube-*.apk
   build-reddit:
     needs: update-system
     runs-on: ubuntu-latest
