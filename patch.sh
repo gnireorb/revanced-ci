@@ -236,43 +236,24 @@ main() {
 
 	## what should we patch
 	case "$what_to_patch" in
-	youtube)
+	YouTube)
 		get_stock_apk_version
 		apk_filename=YouTube-$apk_version.apk
 		integrations="enabled"
 		addarg "-e enable-debugging"
 		;;
-	youtube-music)
-		get_stock_apk_version
-		apk_filename=YouTube-Music-$apk_version.apk
-		;;
-	twitch)
-		get_stock_apk_version
-		apk_filename=Twitch-$apk_version.apk
-		integrations="enabled"
-		addarg "-e debug-mode"
-		;;
-	x)
+	X)
 		get_stock_apk_version
 		apk_filename=X-$apk_version.apk
 		integrations="enabled"
 		;;
-	reddit)
+	Reddit)
 		get_stock_apk_version
 		apk_filename=Reddit-$apk_version.apk
 		;;
-  	infinity)
+  	Infinity)
 		get_stock_apk_version
 		apk_filename=Infinity-$apk_version.apk
-		;;
-	tiktok)
-		get_stock_apk_version
-		apk_filename=TikTok-$apk_version.apk
-		integrations="enabled"
-		;;
-	spotify)
-		get_stock_apk_version
-		apk_filename=Spotify-$apk_version.apk
 		;;
 	*)
 		if notset "$what_to_patch" && check_dep "find"; then
@@ -289,7 +270,7 @@ main() {
 		fi
 		apk_filename="$what_to_patch"
 		integrations="enabled"
-		[ -z "$output_apk" ] && output_apk=revanced-$apk_filename
+		[ -z "$output_apk" ] && output_apk=$apk_filename
 		log "custom apk : $apk_filename"
 		;;
 	esac
@@ -309,7 +290,7 @@ main() {
 
 	## set output apk name
 	notset "$output_apk" && {
-		output_apk=revanced-${what_to_patch#*-}-$apk_version-$root_text.apk
+		output_apk=${what_to_patch#*-}-$apk_version-$root_text.apk
 	}
 
 	## link to download $what_to_patch
