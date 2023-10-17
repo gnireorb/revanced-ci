@@ -172,7 +172,7 @@ addarg() {
 
 main() {
 	## defaults
-	: "${what_to_patch=youtube}"
+	: "${what_to_patch=YouTube}"
 	: "${root=0}"
 	: "${grep=$(command -v rg || command -v grep)}"
 
@@ -231,7 +231,7 @@ main() {
 		esac
 
 		addarg "--custom-aapt2-binary=./$aapt2_filename"
-		[ ! -f "$aapt2_filename" ] && aapt2_link="https://github.com/gnireorb/revanced-ci/releases/download/other/$aapt2_filename"
+		[ ! -f "$aapt2_filename" ] && aapt2_link="https://github.com/gnireorb/revanced-ci/releases/download/Other/$aapt2_filename"
 	fi
 
 	## what should we patch
