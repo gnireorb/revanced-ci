@@ -261,6 +261,10 @@ main() {
 		get_stock_apk_version
 		apk_filename=Reddit-$apk_version.apk
 		;;
+  	infinity)
+		get_stock_apk_version
+		apk_filename=Infinity-$apk_version.apk
+		;;
 	tiktok)
 		get_stock_apk_version
 		apk_filename=TikTok-$apk_version.apk
