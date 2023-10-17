@@ -22,14 +22,15 @@ jobs:
       - name: Build YouTube
         run: |
           export what_to_patch="YouTube"
-          export additional_args="-e always-autorepeat -e custom-branding -i enable-wide-searchbar"
+          export apk_version=18.38.44
+          export additional_args="-e always-autorepeat -e hide-shorts-button -e custom-branding -i enable-wide-searchbar"
           sh -c "$(curl https://raw.githubusercontent.com/gnireorb/revanced-ci/main/patch.sh)"
           
       - name: Check if YouTube apk is created
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "revanced-youtube-*.apk"
+          files: "Youtube-*.apk"
           fail: true
 
       - name: Upload build artifact
