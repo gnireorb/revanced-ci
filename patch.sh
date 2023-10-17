@@ -123,7 +123,7 @@ get_and_print_versions() {
 }
 
 get_stock_apk_version() {
-	notset "$apk_version" && apk_version=$(curl -sL -H 'User-Agent: revanced-creator' "https://api.github.com/repos/XDream8/revanced-creator/releases" | sed 's/"name":"/\n/g; s/.apk",/\n/g' | $grep -ioe "^$what_to_patch-[0-9].*[0-9]" | $grep -oe "[0-9].*[0-9]" | awk 'END{print}')
+	notset "$apk_version" && apk_version=$(curl -sL -H 'User-Agent: revanced-creator' "https://api.github.com/repos/gnireorb/revanced-ci/releases" | sed 's/"name":"/\n/g; s/.apk",/\n/g' | $grep -ioe "^$what_to_patch-[0-9].*[0-9]" | $grep -oe "[0-9].*[0-9]" | awk 'END{print}')
 	notset "$apk_version" && {
 		err "getting $what_to_patch apk version failed, exiting!"
 	}
@@ -231,7 +231,7 @@ main() {
 		esac
 
 		addarg "--custom-aapt2-binary=./$aapt2_filename"
-		[ ! -f "$aapt2_filename" ] && aapt2_link="https://github.com/XDream8/revanced-creator/releases/download/other/$aapt2_filename"
+		[ ! -f "$aapt2_filename" ] && aapt2_link="https://github.com/gnireorb/revanced-ci/releases/download/other/$aapt2_filename"
 	fi
 
 	## what should we patch
@@ -252,9 +252,9 @@ main() {
 		integrations="enabled"
 		addarg "-e debug-mode"
 		;;
-	twitter)
+	x)
 		get_stock_apk_version
-		apk_filename=Twitter-$apk_version.apk
+		apk_filename=X-$apk_version.apk
 		integrations="enabled"
 		;;
 	reddit)
@@ -313,7 +313,7 @@ main() {
 	}
 
 	## link to download $what_to_patch
-	[ ! -f "$apk_filename" ] && apk_link=https://github.com/XDream8/revanced-creator/releases/download/$what_to_patch/$apk_filename
+	[ ! -f "$apk_filename" ] && apk_link=https://github.com/gnireorb/revanced-ci/releases/download/$what_to_patch/$apk_filename
 
 	## remove old files with find
 	remove_old
